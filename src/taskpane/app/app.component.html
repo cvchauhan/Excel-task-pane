@@ -1,0 +1,14 @@
+<header class="ms-welcome__header ms-bgColor-neutralLighter ms-u-fadeIn500">
+    <img width="90" height="90" src="../../../assets/logo-filled.png" alt="Contoso Task Pane Add-in" title="Contoso Task Pane Add-in" />
+    <h1 class="ms-fontSize-su ms-fontWeight-light ms-fontColor-neutralPrimary">{{welcomeMessage}}</h1>
+</header>
+<main class="ms-welcome__main">
+   <h1 class="ms-font-l">Welcome</h1>
+    <button class="ms-Button" id="create-table" (click)="run()">{{"Fill red color"}}</button><br/><br/>
+    <button class="ms-Button" id="create-table" (click)="createTable()">{{CreateTable}}</button><br/><br/>
+    <button class="ms-Button" id="filter-table" (click)="filterTable()">{{FilterTable}}</button><br/><br/>
+    <button class="ms-Button" id="sort-table" (click)="sortTable()">{{SortTable}}</button><br/><br/>
+    <button class="ms-Button" id="create-chart" (click)="createChart()">{{CreateChart}}</button><br/><br/>
+    <button class="ms-Button" id="freeze-header" (click)="freezeHeader()">{{FreezeHeader}}</button><br/><br/>
+    <button class="ms-Button" id="open-dialog">Open Dialog</button><br/><br/>
+</main>
