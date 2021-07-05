@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-  <Id>3561b533-06e8-4afb-87c7-a9cf96ebec6a</Id>
+  <Id>739e0749-1ac8-4316-aaaf-6941674b8acc</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="My Office Add-in"/>
+  <DisplayName DefaultValue="Angular-Office-new"/>
   <Description DefaultValue="A template to get started."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
@@ -30,6 +30,25 @@
           </GetStarted>
           <FunctionFile resid="Commands.Url"/>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
+          
+          <customUI xmlns="http://schemas.microsoft.com
+          /office/2006/01/customui">
+            <ribbon startFromScratch="false">
+              <tabs>
+                <tab idMso="TabCreate" visible="false" />
+                <tab id="dbCustomTab" label="A Custom Tab" visible="true">
+                  <group id="dbCustomGroup" label="A Custom Group">
+                    <control idMso="Paste" label="Built-in Paste" enabled="true"/>
+                  <button id="RunMyMacro" label="Run My Macro" onAction="MyMacro"/>
+                  </group>
+                  <group id="dbCustomGroup2" label="Another Custom Group">
+                    <control idMso="ImportExcel" label="Import from Excel" enabled="true"/>
+                    <control idMso="ExportExcel" label="Export to Excel" enabled="true"/>
+                  </group>
+                </tab>
+              </tabs>
+            </ribbon>
+          </customUI>
             <OfficeTab id="TabHome">
               <Group id="CommandsGroup">
                 <Label resid="CommandsGroup.Label"/>
@@ -54,21 +73,6 @@
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
-                <Control xsi:type="Button" id="ToggleProtection">
-                  <Label resid="ProtectionButtonLabel" />
-                  <Supertip>
-                      <Title resid="ProtectionButtonLabel" />
-                      <Description resid="ProtectionButtonToolTip" />
-                  </Supertip>
-                  <Icon>
-                      <bt:Image size="16" resid="Icon.16x16"/>
-                      <bt:Image size="32" resid="Icon.32x32"/>
-                      <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>toggleProtection</FunctionName>
-                  </Action>
-              </Control>
               </Group>
             </OfficeTab>
           </ExtensionPoint>
@@ -89,13 +93,12 @@
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
+        <bt:String id="dbCustomTab.Label" DefaultValue="Commands Group 123"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
-        <bt:String id="ProtectionButtonLabel" DefaultValue="Toggle Worksheet Protection" />
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
-        <bt:String id="ProtectionButtonToolTip" DefaultValue="Click to protect or unprotect the current worksheet." />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
